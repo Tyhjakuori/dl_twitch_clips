@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+links=only_clips.txt
+
+cat cleaned_source | grep 'lines="1"' | tee links1.txt
+cat links1.txt | grep -Po 'href="([^"]*)?filter' | sed -e 's/href="//g' -e 's/?filter//g' -e 's/\/channelname\/clip\///g' | uniq | tee $links #change the channelname to whatever channel have chosen
+rm links1.txt
+
+while IFS= read -r cmd; do
+	youtube-dl -f best https://clips.twitch.tv/$cmd
+done < "$links"
