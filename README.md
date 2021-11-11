@@ -6,7 +6,7 @@
 
 ## Setup
 
-To run this you will need selenium, firefox and geckodriver, youtube-dl
+To run this you will need selenium, firefox and geckodriver, yt-dlp
 
 You can get geckodriver here: https://github.com/mozilla/geckodriver/releases   
 Download release for your operating system, unpack it and move it somewhere where it can be easily added to your path.
@@ -19,18 +19,18 @@ or for current user
 ```
 pip install --user selenium
 ```
-You can get youtube-dl here: https://github.com/ytdl-org/youtube-dl   
+You can get yt-dlp here: https://github.com/yt-dlp/yt-dlp   
 And install it via command line:   
 ```
-sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+sudo chmod a+rx /usr/local/bin/yt-dlp
 ```
 OR
 ```
-sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp
+sudo chmod a+rx /usr/local/bin/yt-dlp
 ```
-(source youtube-dl [github](https://github.com/ytdl-org/youtube-dl#installation))   
+(source yt-dlp [github](https://github.com/yt-dlp/yt-dlp#installation))   
     
 Or you can download it via your package manager
 
@@ -47,14 +47,14 @@ cat cleaned_source | grep 'lines="1"' | tee links1.txt
 ```
 "cleaned_source" was the name i used for the file that came out of online html beautifier, change that to the name you have for that file.
 ```
-cat links1.txt | grep -Po 'href="([^"]*)?filter' | sed -e 's/href="//g' -e 's/?filter//g' -e 's/\/channelname\/clip\///g' | uniq | tee $links
+channelname=
 ```
-You will need to change this parts text "channelname" ("'s/\/channelname\/clip\///g'") to channel which page source you have.   
+You will need to add here the channel which page source you have.   
     
-Then execute the bash script to get clip names for urls and start downloading the clips via youtube-dl.
+Then execute the bash script to get clip names for urls and start downloading the clips via yt-dlp.
     
 ## Sources
 
-youtube-dl: https://github.com/ytdl-org/youtube-dl   
+youtube-dl: https://github.com/yt-dlp/yt-dlp    
 geckodriver: https://github.com/mozilla/geckodriver   
 selenium: https://github.com/SeleniumHQ/selenium   

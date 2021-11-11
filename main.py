@@ -50,7 +50,7 @@ driver.get(url)
 time.sleep(3)
 
 # Clicks players mute button to get window active
-body = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]/div[2]/main/div[2]/div[3]/div/div/div[2]/div/div[2]/div/div/div/div[6]/div/div[2]/div[1]/div[2]/div/div[1]/button')
+body = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]/div[2]/main/div[2]/div[3]/div/div/div[2]/div/div[2]/div/div/div/div/div[5]/div/div[2]/div[1]/div[2]/div/div[1]/button')
 body.click()
 time.sleep(1)
 
