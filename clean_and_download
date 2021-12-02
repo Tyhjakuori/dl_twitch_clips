@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 links=only_clips.txt
-channelname=
-#change the channelname to whatever channel have chosen
+channelname=somechannel
+#change somechannel to whatever channel name was used with the python script
 
 cat cleaned_source | grep 'lines="1"' | tee links1.txt
 cat links1.txt | grep -Po 'href="([^"]*)?filter' | sed -e 's/href="//g' -e 's/?filter//g' -e "s/\/$channelname\/clip\///g" | uniq | tee $links

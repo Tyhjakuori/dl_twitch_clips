@@ -39,7 +39,10 @@ Or you can download it via your package manager
 Run main.py, it will ask which channel you want and then begin rolling throught the page.   
 You can adjust number of times it presses page down, with my connection it reached the bottom after 190 presses.   
 So default value is set to 200, as then there's a little more room if page doesn't load as fast or something like that.   
-
+   
+I've added "top30d.py" file that uses "range=30d" to get the clips from the past month.   
+Default value on that is set to "25", during my usage it took 17-20 to get to the bottom of the page.   
+   
 After you have the page source i ran it through online html beautifier.   
 You will need to change the following:
 ```
@@ -55,6 +58,6 @@ Then execute the bash script to get clip names for urls and start downloading th
     
 ## Sources
 
-youtube-dl: https://github.com/yt-dlp/yt-dlp    
+yt-dlp: https://github.com/yt-dlp/yt-dlp    
 geckodriver: https://github.com/mozilla/geckodriver   
 selenium: https://github.com/SeleniumHQ/selenium   
