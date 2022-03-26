@@ -29,7 +29,7 @@ def random_headers():
 
 # Getting channelname
 name = input("Channels name: ")
-url = "https://www.twitch.tv/{}/clips?filter=clips&range=30d".format(name)
+url = "https://www.twitch.tv/{}/clips?filter=clips&range=all".format(name)
 
 # Defining a profile
 capabilities = DesiredCapabilities.FIREFOX
@@ -52,7 +52,7 @@ if not os.path.exists(new_path):
     os.makedirs(new_path)
 os.chdir(new_path)
 
-removal_list = ["/{}/clip/".format(name), "?filter=clips&range=30d&sort=time"]
+removal_list = ["/{}/clip/".format(name), "?filter=clips&range=all&sort=time"]
 
 driver.get(url)
 time.sleep(3)
@@ -63,7 +63,7 @@ body.click()
 time.sleep(1)
 
 i = 1
-for i in range(10):
+for i in range(50):
     body.send_keys(Keys.END)
     time.sleep(1)
     i += 1
@@ -77,7 +77,7 @@ links1 = soup.select('a[href^=\/{}\/clip\/]'.format(name))
 
 clip_list = []
 
-with open('clips_top30d_{}.txt'.format(name), 'w') as clip_file:
+with open('clips_{}.txt'.format(name), 'w') as clip_file:
     for clip_name in links1:
         clip_name = clip_name.attrs['href']
         for word in removal_list:
